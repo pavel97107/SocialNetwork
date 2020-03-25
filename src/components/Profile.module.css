@@ -1,0 +1,20 @@
+.content {
+  grid-area: content;
+  background: #9fc1ff;
+  border-radius: 10px;
+}
+
+.content img {
+  height: auto;
+  width: 100%;
+}
+
+.picture {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.item {
+  color: pink;
+  padding-left: 5px;
+}

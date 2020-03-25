@@ -1,9 +1,10 @@
 import React from "react";
+import s from "./Header.module.css";
 
 const Header = () => {
   return (
-    <header className="header">
-      <img src="https://www.designevo.com/res/templates/thumb_small/brown-circle-and-chocolate-coffee.png"></img>
+    <header className={s.header}>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwEvWQH-z0h2b736fK_R0SXaVxwKp6bEfdJhjQujHWZIvxrtPF"></img>
     </header>
   );
 };
