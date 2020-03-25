@@ -5,22 +5,22 @@ const Nav = () => {
   return (
     <nav className={s.nav}>
       <div className={s.item}>
-        <a>Profile1</a>
+        <a>My page</a>
       </div>
       <div className={`${s.item} ${s.active}`}>
-        <a>Profile1</a>
+        <a>News</a>
       </div>
       <div className={s.item}>
-        <a>Profile1</a>
+        <a>Message</a>
       </div>
       <div className={s.item}>
-        <a>Profile1</a>
+        <a>Music</a>
       </div>
       <div className={s.item}>
-        <a>Profile1</a>
+        <a>Video</a>
       </div>
       <div className={s.item}>
-        <a>Profile1</a>
+        <a>Settings</a>
       </div>
     </nav>
   );
