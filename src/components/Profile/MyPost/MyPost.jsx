@@ -4,7 +4,7 @@ import Post from "./post/Post";
 
 const MyPost = () => {
   return (
-    <div className={s.post}>
+    <div className={s.postsBlock}>
       My post
       <div>
         <textarea
@@ -14,10 +14,13 @@ const MyPost = () => {
           rows="10"
           placeholder="Message..."
         ></textarea>
-        <button type="submit">Add post</button>
+        <div>
+          <button type="submit">Add post</button>
+        </div>
       </div>
       <div className={s.posts}>
-        <Post />
+        <Post name="alex" likeCount="0" />
+        <Post name="Hi, my name is Pavel" likeCount="11" />
       </div>
     </div>
   );

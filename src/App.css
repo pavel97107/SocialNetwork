@@ -19,3 +19,9 @@
 body {
   background-color: #d0cfff;
 }
+
+.app-wrapper-content {
+  grid-area: content;
+  background: #9fc1ff;
+  border-radius: 10px;
+}
