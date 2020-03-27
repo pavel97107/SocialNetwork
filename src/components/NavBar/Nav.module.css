@@ -19,10 +19,6 @@
   color: rgb(224, 130, 30);
 }
 
-.item:active {
-  color: green;
-}
-
 .item:hover {
   color: red;
   transition: 0.2s linear;

@@ -7,13 +7,10 @@
   padding: 10px;
 }
 
-.dialog {
+.dialog a {
+  text-decoration: none;
+  color: green;
 }
-
-.dialogsItems .active {
-  color: yellow;
-}
-
 .messages {
   padding: 10px;
 }
