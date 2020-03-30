@@ -12,7 +12,7 @@ const MyPost = props => {
     <div className={s.postsBlock}>
       My post
       <div>
-        <textarea
+        <textarea className={s.textForm}
           name="user_post"
           id=""
           cols="30"

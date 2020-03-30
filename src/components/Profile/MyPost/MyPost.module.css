@@ -1,3 +1,14 @@
 .postsBlock {
   padding: 10px;
 }
+
+.textForm {
+  width: 500px;
+  height: 80px;
+  resize: none;
+  padding: 3px 0 0 3px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+
+}

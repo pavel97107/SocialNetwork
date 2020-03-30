@@ -17,11 +17,16 @@
 }
 
 body {
-  background-color: #d0cfff;
+  background-image: url(https://img3.akspic.ru/image/117021-vymyslennyj_personaz-art-prostranstvo-anime-fialka-1920x1080.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 .app-wrapper-content {
   grid-area: content;
   background: #9fc1ff;
   border-radius: 10px;
 }
+
+

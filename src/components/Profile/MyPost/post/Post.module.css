@@ -1,7 +1,7 @@
 .item {
   color: black;
   padding-left: 5px;
-  background-color: #b08cff;
+  background-color: #8783E1;
   margin-top: 10px;
   border-radius: 10px;
 }
@@ -10,4 +10,5 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  padding: 3px;
 }
