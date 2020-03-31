@@ -19,8 +19,8 @@ const MyPost = props => {
           rows="10"
           placeholder="Message..."
         />
-        <div>
-          <button type="submit">Add post</button>
+        <div className={s.boxBtn}>
+          <button className={s.btnAdd} type="submit">Add post</button>
         </div>
       </div>
       <div className={s.posts}>{postsElements}</div>

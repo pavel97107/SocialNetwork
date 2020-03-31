@@ -28,3 +28,7 @@
 .item:last-child {
   margin-bottom: 10px;
 }
+
+.navLink {
+  padding: 5px 120px 5px 0px;
+}

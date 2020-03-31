@@ -1,8 +1,11 @@
 .postsBlock {
   padding: 10px;
+  font-weight: 500;
+  font-size: 1.3rem;
 }
 
 .textForm {
+  margin-top: 5px;
   width: 500px;
   height: 80px;
   resize: none;
@@ -10,5 +13,34 @@
   border: none;
   outline: none;
   border-radius: 10px;
+  background: #DFD3FF;
+  font-size: 18px;
+}
 
+.textForm:focus {
+  background-color: white;
+}
+
+.btnAdd {
+  background-color: #6200FF;
+  width: 100px;
+  height: 30px;
+  border: none;
+  color: white;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.btnAdd:active {
+  background-color: #8E81FF;
+  color: yellow;
+}
+
+.boxBtn {
+  border-bottom: 1px solid black;
+}
+
+.posts {
+  font-size: 16px;
+  font-weight: 400;
 }
