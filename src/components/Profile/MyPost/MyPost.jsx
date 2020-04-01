@@ -8,11 +8,20 @@ const MyPost = props => {
     <Post message={e.message} id={e.id} likeCount={e.likeCount} key={e.id} />
   ));
 
+  let newPostElement = React.createRef()
+
+  let addPost = () => {
+    let text = newPostElement.current.value;
+    props.addPost(text);
+    newPostElement.current.value = '';
+  };
+
+
   return (
     <div className={s.postsBlock}>
       My post
       <div>
-        <textarea className={s.textForm}
+        <textarea ref={newPostElement} className={s.textForm}
           name="user_post"
           id=""
           cols="30"
@@ -20,7 +29,7 @@ const MyPost = props => {
           placeholder="Message..."
         />
         <div className={s.boxBtn}>
-          <button className={s.btnAdd} type="submit">Add post</button>
+          <button onClick={addPost} className={s.btnAdd} type="submit">Add post</button>
         </div>
       </div>
       <div className={s.posts}>{postsElements}</div>
