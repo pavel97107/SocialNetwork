@@ -1,5 +1,4 @@
-import rerenderEntireTree from "../render";
-
+let rerenderEntireTree;
 
 let state = {
     profilePage: {
@@ -46,6 +45,7 @@ let addPost = () => {
     state.profilePage.posts.push(newPost);
     state.profilePage.newPostText = '';
     rerenderEntireTree(state);
+    console.log(state);
 };
 
 // Profile отрисовывает изменения в state( добовляет новый пост на стену)
@@ -70,7 +70,11 @@ let addMessage = () => {
 // Dialogs отрисовывает изменения в state( добовляет новое сообщение)
 
 
+const subscribe = (observer) => {
+    rerenderEntireTree = observer;
+};
+
 
 export {
-    addPost, state, changeNewPostText, changeValue, addMessage
+    addPost, state, changeNewPostText, changeValue, addMessage, subscribe
 };
