@@ -22,7 +22,9 @@ let state = {
             { id: 3, message: "Good Moorning" },
             { id: 4, message: "I can't believe" },
             { id: 5, message: "She is beaty" }
-        ]
+        ],
+
+        messageValue: ''
     }
 
 
@@ -34,19 +36,41 @@ let changeNewPostText = (text) => {
     rerenderEntireTree(state);
 };
 
-let addPost = (postMessage) => {
-  let newPost = {
-      id: 7,
-      message: state.profilePage.newPostText,
-      likeCount: 13
-  };
+let addPost = () => {
+    let newPost = {
+        id: 7,
+        message: state.profilePage.newPostText,
+        likeCount: 13
+    };
 
-  state.profilePage.posts.push(newPost);
-  state.profilePage.newPostText = '';
+    state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
     rerenderEntireTree(state);
 };
 
+// Profile отрисовывает изменения в state( добовляет новый пост на стену)
+
+let changeValue = (text) => {
+    state.messagesPage.messageValue = text;
+    console.log(state.messagesPage.messageValue);
+    rerenderEntireTree(state);
+};
+
+let addMessage = () => {
+    let newMessage = {
+        id: 8,
+        message: state.messagesPage.messageValue
+    };
+
+    state.messagesPage.messagesData.push(newMessage);
+    state.messagesPage.messageValue = '';
+    rerenderEntireTree(state);
+};
+
+// Dialogs отрисовывает изменения в state( добовляет новое сообщение)
+
+
 
 export {
-    addPost, state, changeNewPostText
+    addPost, state, changeNewPostText, changeValue, addMessage
 };

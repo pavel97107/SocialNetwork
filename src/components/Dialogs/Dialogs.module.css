@@ -5,6 +5,7 @@
 
 .dialogsItems {
   padding: 10px;
+  border-right: 1px solid black;
 }
 
 .dialog a {
@@ -16,4 +17,31 @@
 }
 
 .message {
+}
+
+.addDataMessage {
+  margin-left: 10px;
+}
+
+.addBtn {
+  background-color: #6200FF;
+  width: 100px;
+  height: 30px;
+  border: none;
+  color: white;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.textForm {
+  margin-top: 5px;
+  width: 500px;
+  height: 80px;
+  resize: none;
+  padding: 3px 0 0 3px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: #DFD3FF;
+  font-size: 18px;
 }
