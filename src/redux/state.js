@@ -39,30 +39,6 @@ let store = {
         console.log('state changed')
     },
 
-    changeNewPostText(text) {
-
-    },
-
-    addPost() {
-
-    },
-
-    changeValue(text) {
-        this._state.messagesPage.messageValue = text;
-        console.log(this._state.messagesPage.messageValue);
-        this._callSubscriber(this._state);
-    },
-
-    addMessage() {
-        let newMessage = {
-            id: 8,
-            message: this._state.messagesPage.messageValue
-        };
-
-        this._state.messagesPage.messagesData.push(newMessage);
-        this._state.messagesPage.messageValue = '';
-        this._callSubscriber(this._state);
-    },
 
     dispatch(action) {
         if (action.type === 'ADD-POST') {
@@ -75,10 +51,20 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state);
-            console.log(this._state);
         } else if (action.type === 'CHANGE-NEW-POST-TEXT') {
             this._state.profilePage.newPostText = action.text;
-            console.log(this._state.profilePage.newPostText);
+            this._callSubscriber(this._state);
+        } else if (action.type === 'ADD-MESSAGE') {
+            let newMessage = {
+                id: 8,
+                message: this._state.messagesPage.messageValue
+            };
+
+            this._state.messagesPage.messagesData.push(newMessage);
+            this._state.messagesPage.messageValue = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'CHANGE-VALUE-MESSAGE') {
+            this._state.messagesPage.messageValue = action.text;
             this._callSubscriber(this._state);
         }
     }

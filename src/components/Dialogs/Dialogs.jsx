@@ -15,14 +15,16 @@ const Dialogs = (props) => {
     ));
 
     let addMessage = () => {
-        props.addMessage();
+        props.dispatch({type: 'ADD-MESSAGE' });
     };
+    // принимает данные с BLL(object state) и при клике отрисовывает сообщение
 
     let textAreaLink = React.createRef();
     const onChangeMessage = () => {
         let textMessageTextarea = textAreaLink.current.value;
-        props.changeValue(textMessageTextarea);
+        props.dispatch({type: 'CHANGE-VALUE-MESSAGE', text: textMessageTextarea });
     };
+    // при смене символов в textarea данные переписываются в BLL и отправляются через props
 
     return (
         <div className={s.dialogs}>
