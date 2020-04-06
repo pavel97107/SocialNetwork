@@ -1,80 +1,88 @@
-let rerenderEntireTree;
+let store = {
+    _state: {
+        profilePage: {
+            posts: [
+                {id: 1, message: "this is good", likeCount: 12}
+            ],
+            newPostText: ''
+        },
+        messagesPage: {
+            dialogsData: [
+                {id: 1, name: "Jack"},
+                {id: 2, name: "Pavel"},
+                {id: 3, name: "Jason"},
+                {id: 4, name: "Stas"},
+                {id: 5, name: "Dima"}
+            ],
+            messagesData: [
+                {id: 1, message: "hi, how are you?"},
+                {id: 2, message: "Hello world"},
+                {id: 3, message: "Good Moorning"},
+                {id: 4, message: "I can't believe"},
+                {id: 5, message: "She is beaty"}
+            ],
 
-let state = {
-    profilePage: {
-        posts:[
-            { id: 1, message: "this is good", likeCount: 12 }
-        ],
-        newPostText: ''
+            messageValue: ''
+        }
+
+
     },
-    messagesPage: {
-        dialogsData:[
-            { id: 1, name: "Jack" },
-            { id: 2, name: "Pavel" },
-            { id: 3, name: "Jason" },
-            { id: 4, name: "Stas" },
-            { id: 5, name: "Dima" }
-        ],
-        messagesData:[
-            { id: 1, message: "hi, how are you?" },
-            { id: 2, message: "Hello world" },
-            { id: 3, message: "Good Moorning" },
-            { id: 4, message: "I can't believe" },
-            { id: 5, message: "She is beaty" }
-        ],
 
-        messageValue: ''
+    getState() {
+        return this._state;
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+
+    _callSubscriber() {
+        console.log('state changed')
+    },
+
+    changeNewPostText(text) {
+
+    },
+
+    addPost() {
+
+    },
+
+    changeValue(text) {
+        this._state.messagesPage.messageValue = text;
+        console.log(this._state.messagesPage.messageValue);
+        this._callSubscriber(this._state);
+    },
+
+    addMessage() {
+        let newMessage = {
+            id: 8,
+            message: this._state.messagesPage.messageValue
+        };
+
+        this._state.messagesPage.messagesData.push(newMessage);
+        this._state.messagesPage.messageValue = '';
+        this._callSubscriber(this._state);
+    },
+
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 7,
+                message: this._state.profilePage.newPostText,
+                likeCount: 13
+            };
+
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
+            console.log(this._state);
+        } else if (action.type === 'CHANGE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.text;
+            console.log(this._state.profilePage.newPostText);
+            this._callSubscriber(this._state);
+        }
     }
 
-
 };
-
-let changeNewPostText = (text) => {
-    state.profilePage.newPostText = text;
-    console.log(state.profilePage.newPostText);
-    rerenderEntireTree(state);
-};
-
-let addPost = () => {
-    let newPost = {
-        id: 7,
-        message: state.profilePage.newPostText,
-        likeCount: 13
-    };
-
-    state.profilePage.posts.push(newPost);
-    state.profilePage.newPostText = '';
-    rerenderEntireTree(state);
-    console.log(state);
-};
-
-// Profile отрисовывает изменения в state( добовляет новый пост на стену)
-
-let changeValue = (text) => {
-    state.messagesPage.messageValue = text;
-    console.log(state.messagesPage.messageValue);
-    rerenderEntireTree(state);
-};
-
-let addMessage = () => {
-    let newMessage = {
-        id: 8,
-        message: state.messagesPage.messageValue
-    };
-
-    state.messagesPage.messagesData.push(newMessage);
-    state.messagesPage.messageValue = '';
-    rerenderEntireTree(state);
-};
-
-// Dialogs отрисовывает изменения в state( добовляет новое сообщение)
-
-
-const subscribe = (observer) => {
-    rerenderEntireTree = observer;
-};
-
-
-export {
-    addPost, state, changeNewPostText, changeValue, addMessage, subscribe
-};
+window.store = store;
+export default store;
