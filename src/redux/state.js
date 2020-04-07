@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const CHANGE_NEW_POST_TEXT = 'CHANGE-NEW-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const CHANGE_VALUE_MESSAGE = 'CHANGE-VALUE-MESSAGE';
+
 let store = {
     _state: {
         profilePage: {
@@ -41,7 +46,7 @@ let store = {
 
 
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 7,
                 message: this._state.profilePage.newPostText,
@@ -51,10 +56,10 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'CHANGE-NEW-POST-TEXT') {
+        } else if (action.type === CHANGE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.text;
             this._callSubscriber(this._state);
-        } else if (action.type === 'ADD-MESSAGE') {
+        } else if (action.type === ADD_MESSAGE) {
             let newMessage = {
                 id: 8,
                 message: this._state.messagesPage.messageValue
@@ -63,12 +68,23 @@ let store = {
             this._state.messagesPage.messagesData.push(newMessage);
             this._state.messagesPage.messageValue = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'CHANGE-VALUE-MESSAGE') {
+        } else if (action.type === CHANGE_VALUE_MESSAGE) {
             this._state.messagesPage.messageValue = action.text;
             this._callSubscriber(this._state);
         }
     }
 
 };
+
+
+export const addPostActionCreate = () => ({type: ADD_POST});
+
+export const changeNewPostActionCreate = (text) =>
+    ({
+        type: CHANGE_NEW_POST_TEXT,
+        text: text
+    })
+;
+
 window.store = store;
 export default store;

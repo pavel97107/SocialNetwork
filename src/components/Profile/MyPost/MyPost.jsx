@@ -1,6 +1,12 @@
 import React from "react";
 import s from "./MyPost.module.css";
 import Post from "./post/Post";
+import {addPostActionCreate, changeNewPostActionCreate} from "../../../redux/state";
+
+
+
+
+
 
 const MyPost = props => {
   let postsElements = props.posts.map(e => (
@@ -11,12 +17,12 @@ const MyPost = props => {
   // ссылка на textarea
 
   let addPost = () => {
-    props.dispatch({type: 'ADD-POST'});
+    props.dispatch(addPostActionCreate());
   };
 
   let onPostChange = () => {
     let textAreaPost = newPostElement.current.value;
-    props.dispatch({type: 'CHANGE-NEW-POST-TEXT', text: textAreaPost});
+    props.dispatch(changeNewPostActionCreate(textAreaPost));
   };
 
   return (
