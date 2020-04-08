@@ -17,6 +17,13 @@
 }
 
 .message {
+  padding: 10px;
+  margin-top: 2px;
+  background-color: #839FD2;
+}
+
+.message:active {
+
 }
 
 .addDataMessage {
@@ -33,10 +40,27 @@
   margin-bottom: 15px;
 }
 
+
+
+.contentMessages {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  padding: 5px;
+  background-color: #90AEE7;
+}
+
+.messageItems {
+  overflow: auto;
+}
+
 .textForm {
   margin-top: 5px;
   width: 500px;
-  height: 80px;
+  max-height: 36px;
   resize: none;
   padding: 3px 0 0 3px;
   border: none;
@@ -44,4 +68,10 @@
   border-radius: 10px;
   background: #DFD3FF;
   font-size: 18px;
+}
+
+.textForm:focus {
+  height: auto;
+  overflow: auto;
+  max-height: 86px;
 }
