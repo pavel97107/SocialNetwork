@@ -2,28 +2,28 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import MessageItem from "./Message/Message";
-import {addMessageActionCreate, changeValueMessageActionCreate,} from "../../redux/dialogs-reducer";
+
 
 
 const Dialogs = (props) => {
 
-    let dialogsElements = props.state.dialogsData.map(d => (
+    let dialogsElements = props.messagesPage.dialogsData.map(d => (
         <DialogItem name={d.name} key={d.id} id={d.id}/>
     ));
 
-    let messagesElements = props.state.messagesData.map(m => (
+    let messagesElements = props.messagesPage.messagesData.map(m => (
         <MessageItem message={m.message} key={m.id} id={m.id}/>
     ));
 
-    let addMessage = () => {
-        props.dispatch(addMessageActionCreate());
+    let onAddMessage = () => {
+        props.addMessage();
     };
     // принимает данные с BLL(object state) и при клике отрисовывает сообщение
 
     let textAreaLink = React.createRef();
     const onChangeMessage = (event) => {
-        const text = event.target.value;
-        props.dispatch(changeValueMessageActionCreate(text));
+        let text = event.target.value;
+        props.upDateTextMessage(text);
     };
     // при смене символов в textarea данные переписываются в BLL и отправляются через props
 
@@ -35,9 +35,9 @@ const Dialogs = (props) => {
                   <div className={s.messageItems}>{messagesElements}</div>
                 </div>
                 <div className={s.addDataMessage}>
-                <textarea className={s.textForm}  value={props.state.messageValue}
+                <textarea className={s.textForm}  value={props.messagesPage.messageValue}
                           onChange={onChangeMessage}/>
-                    <div><button className={s.addBtn} onClick={addMessage} type='submit'>add</button></div>
+                    <div><button className={s.addBtn} onClick={onAddMessage} type='submit'>add</button></div>
                 </div>
             </div>
 
