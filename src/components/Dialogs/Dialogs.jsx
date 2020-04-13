@@ -6,7 +6,7 @@ import MessageItem from "./Message/Message";
 
 
 const Dialogs = (props) => {
-
+debugger;
     let dialogsElements = props.messagesPage.dialogsData.map(d => (
         <DialogItem name={d.name} key={d.id} id={d.id}/>
     ));
@@ -20,7 +20,6 @@ const Dialogs = (props) => {
     };
     // принимает данные с BLL(object state) и при клике отрисовывает сообщение
 
-    let textAreaLink = React.createRef();
     const onChangeMessage = (event) => {
         let text = event.target.value;
         props.upDateTextMessage(text);
